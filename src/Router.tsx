@@ -5,6 +5,9 @@ export default  function Router(){
     return <BrowserRouter>
         <Routes>
             <Route path="/" element={<App />} />
+            <Route>
+                
+            </Route>
             <Route path="*" element={<div>404 Not Found</div>} />
         </Routes>
     </BrowserRouter>

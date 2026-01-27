@@ -2,22 +2,22 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm,Controller } from "react-hook-form"
 import { LoginSchema } from "@/schemas/LoginSchema"
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldGroup,
-  FieldLabel,
-} from "@sha/components/ui/field";
+import { Field,FieldError,FieldLabel} from "@sha/components/ui/field";
 import { Input } from "@sha/components/ui/input";
 import z from "zod";
 import { Button } from "@sha/components/ui/button";
+import { POST } from "@/utils/http";
+import { useUserStore } from "@/state/UserState";
+import type { UserType } from "@/types/UserType";
+import { useNavigate } from "react-router";
 export function LoginForm(){
+    const userStore = useUserStore();
+    const navigate = useNavigate();
     const form = useForm<z.infer<typeof  LoginSchema>>(
         {
             resolver:zodResolver(LoginSchema),
             defaultValues:{
-                username:"",
+                email:"",
                 password:""
             }
         }
@@ -26,13 +26,21 @@ export function LoginForm(){
 
 
     const onSubmit = (values:z.infer<typeof LoginSchema>)=>{
-        console.log(values);
+        console.log(values,typeof values );
+        POST("/api/auth/signin",values).then(async (response)=>{
+            let data = await response.json();
+            if(response.status == 200){
+                let user:UserType = {id:data.id,firstName:data.firstname,lastname:data.lastname,token:data.token}
+                userStore.setUser({user});
+                navigate("")
+            }
+        });
     }
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} className="gap-6">
             <Controller 
-                name="username"
+                name="email"
                 control={form.control}
                 render={
                     ({field,fieldState})=>(
