@@ -24,12 +24,12 @@ export function POST(uri:string,body:object|FormData,token:string|null = null, h
     return fetch(`${import.meta.env.VITE_BASE_URL}${uri}`,config)
 }
 
-export function GET(uri:string,body:object|FormData,token:string|null = null, headers:object|null = null)
+export function GET(uri:string,token:string|null = null, headers:object|null = null)
 {
     let config:HTTPConfigType ={
         method:'GET',
-        body:body instanceof FormData ? body : JSON.stringify(body),
     }
+    let queryString ="?";
     if(headers!==null){
         config.headers = {...headers};
     }
@@ -39,17 +39,14 @@ export function GET(uri:string,body:object|FormData,token:string|null = null, he
             'Authorization':`Bearer ${token}`
         };
     }
-    if(body instanceof FormData == false){
-        config.headers = {
-            ...config.headers,
-            'Content-Type':'application/json'
-        }
-    }
+
+
     return fetch(`${import.meta.env.VITE_BASE_URL}${uri}`,config)
 }
 
 export function PUT(uri:string,body:object|FormData,token:string|null = null, headers:object|null = null)
 {
+    
     let config:HTTPConfigType ={
         method:'PUT',
         body:body instanceof FormData ? body : JSON.stringify(body),
@@ -69,11 +66,14 @@ export function PUT(uri:string,body:object|FormData,token:string|null = null, he
             'Content-Type':'application/json'
         }
     }
+    throw new Error("Function not implemented.");
+
     return fetch(`${import.meta.env.VITE_BASE_URL}${uri}`,config)
 }
 
 export function DELETE(uri:string,body:object|FormData,token:string|null = null, headers:object|null = null)
 {
+
     let config:HTTPConfigType ={
         method:'DELETE',
         body:body instanceof FormData ? body : JSON.stringify(body),
@@ -93,5 +93,7 @@ export function DELETE(uri:string,body:object|FormData,token:string|null = null,
             'Content-Type':'application/json'
         }
     }
+    throw new Error("Function not implemented.");
+
     return fetch(`${import.meta.env.VITE_BASE_URL}${uri}`,config)
 }

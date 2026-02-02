@@ -9,6 +9,8 @@ type UserType = {
 type UserStateActions = {
     setUser:(user:UserState|null) => void;
     getToken:()=>string|null;
+    getName:()=>string|null;
+    getFullName:()=>string|null;
     reset:()=>void;
 }
 

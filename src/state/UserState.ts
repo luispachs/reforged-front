@@ -8,6 +8,8 @@ const useUserStore = create<UserState & UserStateActions>(
                     user:user?.user || null
                 })),
         getToken:()=>{return get().user?.token || null},
+        getName:()=>{return get().user?.firstName || null},
+        getFullName:()=>{return get().user?.firstName + " " + get().user?.lastname || null},
         reset:()=>set(store.getInitialState())
     })
 );

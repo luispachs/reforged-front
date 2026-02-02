@@ -11,7 +11,7 @@ import { useUserStore } from "@/state/UserState";
 import type { UserType } from "@/types/UserType";
 import { useNavigate } from "react-router";
 export function LoginForm(){
-    const userStore = useUserStore();
+
     const navigate = useNavigate();
     const form = useForm<z.infer<typeof  LoginSchema>>(
         {
@@ -26,13 +26,13 @@ export function LoginForm(){
 
 
     const onSubmit = (values:z.infer<typeof LoginSchema>)=>{
-        console.log(values,typeof values );
         POST("/api/auth/signin",values).then(async (response)=>{
             let data = await response.json();
             if(response.status == 200){
-                let user:UserType = {id:data.id,firstName:data.firstname,lastname:data.lastname,token:data.token}
-                userStore.setUser({user});
-                navigate("")
+                localStorage.setItem(import.meta.env.VITE_TOKEN_NAME,data.token);
+                localStorage.setItem(import.meta.env.VITE_UUID,data.id);
+                localStorage.setItem(import.meta.env.VITE_EXPIRE_TOKEN,data.expires)
+                navigate("/dashboard")
             }
         });
     }
