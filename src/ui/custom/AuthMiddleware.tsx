@@ -31,7 +31,7 @@ export function AuthMiddleware(){
                 if(resp.status == 200){
                     let json = await resp.json();
                     userStore.setUser({user:{
-                            firstName:json.name,lastname:json.lastname,id:json.id,token:token??undefined
+                            firstName:json.name,lastname:json.lastname,id:json.id,token:token??undefined,photo:json.photo
                                 }
                         })
                     return json

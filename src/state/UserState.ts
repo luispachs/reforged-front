@@ -10,6 +10,13 @@ const useUserStore = create<UserState & UserStateActions>(
         getToken:()=>{return get().user?.token || null},
         getName:()=>{return get().user?.firstName || null},
         getFullName:()=>{return get().user?.firstName + " " + get().user?.lastname || null},
+        getPhoto:()=>{
+            if(get().user != null){
+                return get().user!.photo!;
+            }else{
+                return null;
+            }
+        },
         reset:()=>set(store.getInitialState())
     })
 );

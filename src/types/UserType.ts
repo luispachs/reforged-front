@@ -2,6 +2,7 @@ type UserType = {
     id: string;
     firstName: string;
     lastname:string;
+    photo:string|null;
     token?:string;
 
 }
@@ -11,6 +12,7 @@ type UserStateActions = {
     getToken:()=>string|null;
     getName:()=>string|null;
     getFullName:()=>string|null;
+    getPhoto:()=>string|null
     reset:()=>void;
 }
 
