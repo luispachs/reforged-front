@@ -10,9 +10,12 @@ import { POST } from "@/utils/http";
 import { useUserStore } from "@/state/UserState";
 import type { UserType } from "@/types/UserType";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 export function LoginForm(){
 
     const navigate = useNavigate();
+    const [error,setError] = useState(false)
+    const [errorMessage, setErrorMessage] =useState("");
     const form = useForm<z.infer<typeof  LoginSchema>>(
         {
             resolver:zodResolver(LoginSchema),
@@ -34,11 +37,16 @@ export function LoginForm(){
                 localStorage.setItem(import.meta.env.VITE_EXPIRE_TOKEN,data.expires)
                 navigate("/dashboard")
             }
+            if(response.status == 400 || response.status == 500 || response.status == 401){
+                setError(true);
+                setErrorMessage(data.error)
+            }
         });
     }
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} className="gap-6">
+            {error && <section className="w-[100%] bg-accent-foreground border-accent"><h3 className="text-accent">{errorMessage}</h3></section>}
             <Controller 
                 name="email"
                 control={form.control}

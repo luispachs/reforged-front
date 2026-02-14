@@ -1,3 +1,5 @@
+
+/// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -14,5 +16,7 @@ export default defineConfig({
         "@sha": path.resolve(__dirname, "sha"),
         "sha": path.resolve(__dirname, "sha")
       }
+    },
+    test:{
     }
 })

@@ -29,7 +29,7 @@ export function GET(uri:string,token:string|null = null, headers:object|null = n
     let config:HTTPConfigType ={
         method:'GET',
     }
-    let queryString ="?";
+    
     if(headers!==null){
         config.headers = {...headers};
     }
@@ -39,7 +39,6 @@ export function GET(uri:string,token:string|null = null, headers:object|null = n
             'Authorization':`Bearer ${token}`
         };
     }
-
 
     return fetch(`${import.meta.env.VITE_BASE_URL}${uri}`,config)
 }

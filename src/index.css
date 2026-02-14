@@ -135,6 +135,7 @@
     height: 100dvh;
     background-color: var(--color-tercol-surface);
     color: var(--color-tercol-content);
+    font-size: clamp(10px,12px,13px);
 }
 .dark {
   --background: oklch(15.5% 0 0);
