@@ -17,16 +17,21 @@ export function ProfileCard(){
         GET("/api/auth/signout");
         navigate("/");
     }
-    return (<section className="w-[40%] md:w-[30%] lg:w-[20%] h-10 hover:h-20 flex flex-col gap-2 items-start justify-start px-4 py-2 group/user-profile">
-                <article className="w-[100%] h-10 flex flex-row gap-2 items-center justify-start px-4 py-2 group-hover/user-profile:bg-accent-foreground">
+    return (<section className="w-[100%] md:w-[30%] lg:w-[20%] h-12 flex flex-col gap-2 items-start justify-start px-4 py-2 group/user-profile relative">
+                <article className="w-[100%] h-10 flex flex-row gap-2 items-center justify-start px-4 py-2 group-hover/user-profile:bg-primary rounded-md">
+                    <div className="w-2 h-10 gap-1 flex flex-col justify-center items-center">
+                            <div className="rounded-[50%] w-2 h-2 bg-primary"></div>
+                            <div className="rounded-[50%] w-2 h-2 bg-primary"></div>
+                            <div className="rounded-[50%] w-2 h-2 bg-primary"></div>
+                    </div>
                     <Avatar>
-                        <AvatarImage src={user.getPhoto()??"/public/profile-dark"}/>
+                        <AvatarImage src={user.getPhoto()??"/public/profile-dark"} data-cy="profile-image"/>
                         <AvatarFallback><img src={profileImage}/></AvatarFallback>
                     </Avatar>
-                    <h4><Link to={"/profile"}>{user.getFullName()}</Link></h4>
+                    <h4><Link to={"/profile"} data-cy="fullname">{user.getFullName()}</Link></h4>
                 </article>
-                <article className="w-[100%] h-10 flex-row gap-2 items-center justify-start px-4 py-2 hidden group-hover/user-profile:flex">
-                    <Button onClick={logout} className="w-[80%] md:w-[50%] lg:w-[40%]">Cerrar Sesi&oacute;n</Button>
+                <article className="w-[100%] h-10 flex-row gap-2 items-center justify-start px-4 py-2  md:hidden lg:hidden group-hover/user-profile:flex absolute top-12">
+                    <Button onClick={logout} className="w-[30%] md:w-[50%] lg:w-[40%]" data-cy="close-session">Cerrar Sesi&oacute;n</Button>
                 </article>
             </section>);
 }

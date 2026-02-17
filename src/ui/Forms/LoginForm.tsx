@@ -29,6 +29,7 @@ export function LoginForm(){
 
 
     const onSubmit = (values:z.infer<typeof LoginSchema>)=>{
+        setError(false)
         POST("/api/auth/signin",values).then(async (response)=>{
             let data = await response.json();
             if(response.status == 200){
@@ -39,14 +40,15 @@ export function LoginForm(){
             }
             if(response.status == 400 || response.status == 500 || response.status == 401){
                 setError(true);
-                setErrorMessage(data.error)
+                setErrorMessage(data.message);
+                console.log(data.message)
             }
-        });
+        })
     }
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} className="gap-6">
-            {error && <section className="w-[100%] bg-accent-foreground border-accent"><h3 className="text-accent">{errorMessage}</h3></section>}
+            {error && <section className="w-[100%] bg-accent-foreground border-accent"><h3 className="text-accent" data-cy="login-error">{errorMessage}</h3></section>}
             <Controller 
                 name="email"
                 control={form.control}
@@ -54,7 +56,7 @@ export function LoginForm(){
                     ({field,fieldState})=>(
                         <Field data-invalid={fieldState.invalid} className="px-2">
                             <FieldLabel>Usuario</FieldLabel>
-                            <Input {...field} id="username" aria-invalid={fieldState.invalid} placeholder="Usuario" autoComplete="off"/>
+                            <Input {...field} id="username" aria-invalid={fieldState.invalid} placeholder="Usuario" autoComplete="off" data-cy="username-login"/>
                             {fieldState.invalid && <FieldError>{fieldState.error?.message}</FieldError>}
                         </Field>
                     )
@@ -67,14 +69,14 @@ export function LoginForm(){
                     ({field,fieldState})=>(
                         <Field data-invalid={fieldState.invalid}  className="px-2">
                             <FieldLabel>Contraseña</FieldLabel>
-                            <Input {...field} type="password" id="password" aria-invalid={fieldState.invalid} placeholder="Contraseña" autoComplete="off"/>
+                            <Input {...field} type="password" id="password" aria-invalid={fieldState.invalid} placeholder="Contraseña" autoComplete="off"  data-cy="password-login"/>
                             {fieldState.invalid && <FieldError>{fieldState.error?.message}</FieldError>}
                         </Field>
                     )
                 }
             />
            <section className="w-full h-1/12 flex justify-center items-center p-2">
-                <Button type="submit">Ingresar</Button> 
+                <Button type="submit"  data-cy="submit-login">Ingresar</Button> 
            </section>
         </form>
     )

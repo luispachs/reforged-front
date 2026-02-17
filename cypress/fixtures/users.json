@@ -1,0 +1,19 @@
+{
+    "users":[
+        {
+            "username":"desarrollo@tercol.com.co",
+            "password":"lapsDev1308",
+            "pass":true
+        },
+         {
+            "username":"desarrollo@tercol.com",
+            "password":"lapsDev1308",
+            "pass":false
+        },
+         {
+            "username":"laps1308@gmail.com",
+            "password":"lapsDev1308",
+            "pass":false
+        }
+    ]
+}

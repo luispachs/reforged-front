@@ -220,3 +220,10 @@
   80% { transform:  scale(1.2)}
 }
 }
+
+#bg-example{
+  background-image: url("/banner_image.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
