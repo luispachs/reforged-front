@@ -3,13 +3,13 @@ import { useUserStore } from "@/state/UserState";
 import { MainNavBar } from "@/ui/MainNavBar";
 import { OperatorLayout } from "@/ui/layouts/OperatorLayout";
 import { AdminLayout } from "@/ui/layouts/AdminLayout";
-export function Index(){
+export function Operator(){
     const userStore = useUserStore();
     const token = userStore.getToken();
 
     return (
-        <AdminLayout>
-            <h1>Main</h1>
-        </AdminLayout>    
+        <OperatorLayout>
+            <h1>Operarios</h1>
+        </OperatorLayout>    
     );
 }
