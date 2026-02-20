@@ -17,7 +17,7 @@ export function ProfileCard(){
         GET("/api/auth/signout");
         navigate("/");
     }
-    return (<section className="w-[100%] md:w-[30%] lg:w-[20%] h-12 flex flex-col gap-2 items-start justify-start px-4 py-2 group/user-profile relative">
+    return (<section className="w-[80%] md:w-[30%] lg:w-[20%] h-12 flex flex-col gap-2 items-start justify-start px-4 py-2 group/user-profile relative">
                 <article className="w-[100%] h-10 flex flex-row gap-2 items-center justify-start px-4 py-2 group-hover/user-profile:bg-primary rounded-md">
                     <div className="w-2 h-10 gap-1 flex flex-col justify-center items-center">
                             <div className="rounded-[50%] w-2 h-2 bg-primary"></div>
@@ -25,7 +25,7 @@ export function ProfileCard(){
                             <div className="rounded-[50%] w-2 h-2 bg-primary"></div>
                     </div>
                     <Avatar>
-                        <AvatarImage src={user.getPhoto()??"/public/profile-dark"} data-cy="profile-image"/>
+                        <AvatarImage src={user.getPhoto()??"/profile-dark"} data-cy="profile-image"/>
                         <AvatarFallback><img src={profileImage}/></AvatarFallback>
                     </Avatar>
                     <h4><Link to={"/profile"} data-cy="fullname">{user.getFullName()}</Link></h4>

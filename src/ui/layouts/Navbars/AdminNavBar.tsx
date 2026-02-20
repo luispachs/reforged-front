@@ -41,40 +41,40 @@ export function AdminNavBar(){
     
     return (
         <section className="w-[100%]">
-            <article className={"w-[100%] md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]  flex flex-row justify-start items-center rounded-md hover:bg-primary group/produccion " + (activeProduction? "bg-primary":"")}>
-                <Link to="/dashboard/production"  className="w-[100%] flex flex-row gap-[3px]">
-                <div className="w-[30%] md:w-[10%] lg:w-[10%]"><img src={produccionIcon} className="w-[40%] h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
+            <article className={"w-10 md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]  flex flex-row justify-start items-center rounded-md hover:bg-primary group/produccion " + (activeProduction? "bg-primary":"")}>
+                <Link to="/dashboard/production"  className="w-10 md:w-[100%] lg:w-[100%] flex flex-row gap-[3px]">
+                <div className="w-10 md:w-[10%] lg:w-[10%]"><img src={produccionIcon} className="w-10 h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
                 <div className="w-[90%] hidden md:flex lg:flex"><h4 className="group-hover/produccion:font-bold">Producción</h4></div>
                 </Link>
             </article>
-            <article className={"w-[100%]  md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]  flex flex-row justify-start items-center rounded-md hover:bg-primary  group/mantenimiento "  + (activeMto ? "bg-primary":"")}>
-                <Link to="/dashboard/mto"  className="w-[100%] flex flex-row gap-[3px]">
-                    <div className="w-[30%] md:w-[10%] lg:w-[10%]"><img  src={mantenimientoIcon} className="w-[40%] h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
+            <article className={"w-10  md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]  flex flex-row justify-start items-center rounded-md hover:bg-primary  group/mantenimiento "  + (activeMto ? "bg-primary":"")}>
+                <Link to="/dashboard/mto"  className="w-10 md:w-[100%] lg:w-[100%] flex flex-row gap-[3px]">
+                    <div className="w-10 md:w-[10%] lg:w-[10%]"><img  src={mantenimientoIcon} className="w-10 h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
                     <div className="w-[90%] hidden md:flex lg:flex"><h4 className="group-hover/mantenimiento:font-bold">Mantenimiento</h4></div>
                 </Link>
             </article>
-            <article className={"w-[100%]  md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]   flex flex-row justify-start items-center rounded-md hover:bg-primary group/ci " + (activeCi? "bg-primary":"")}>
-                <Link to="/dashboard/ci"  className="w-[100%] flex flex-row gap-[3px]">
-                    <div className="w-[30%] md:w-[10%] lg:w-[10%]"><img  src={qualityIcon} className="w-[40%] h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
+            <article className={"w-10  md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]   flex flex-row justify-start items-center rounded-md hover:bg-primary group/ci " + (activeCi? "bg-primary":"")}>
+                <Link to="/dashboard/ci"  className="w-10 md:w-[100%] lg:w-[100%] flex flex-row gap-[3px]">
+                    <div className="w-10 md:w-[10%] lg:w-[10%]"><img  src={qualityIcon} className="w-10 h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
                     <div className="w-[90%] hidden md:flex lg:flex"><h4 className="group-hover/ci:font-bold">Calidad e Innovaci&oacute;n</h4></div>
                 </Link>
             </article>
 
-            <article className={"w-[100%]  md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]   flex flex-row justify-start items-center rounded-md hover:bg-primary group/sst "  + (activeSst? "bg-primary":"")}>
-                <Link to="/dashboard/sst"  className="w-[100%] flex flex-row gap-[3px]">
-                <div className="w-[30%] md:w-[10%] lg:w-[10%]"><img  src={sstIcon} className="w-[40%] h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
+            <article className={"w-10  md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]   flex flex-row justify-start items-center rounded-md hover:bg-primary group/sst "  + (activeSst? "bg-primary":"")}>
+                <Link to="/dashboard/sst"  className="w-10 md:w-[100%] lg:w-[100%] flex flex-row gap-[3px]">
+                <div className="w-10 md:w-[10%] lg:w-[10%]"><img  src={sstIcon} className="w-10 h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
                 <div className="w-[90%] hidden md:flex lg:flex"><h4 className="group-hover/sst:font-bold">SST</h4></div>
                 </Link>
             </article>
-            <article className={"w-[100%]  md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]   flex flex-row justify-start items-center rounded-md hover:bg-primary group/logistica "  +( activeLogistic? "bg-primary":"")}>
-                <Link to="/dashboard/logistic"  className="w-[100%] flex flex-row gap-[3px]">
-                <div className="w-[30%] md:w-[10%] lg:w-[10%]"><img  src={logisticaIcon} className="w-[40%] h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
+            <article className={"w-10  md:w-[60%] lg:w-[60%] h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]   flex flex-row justify-start items-center rounded-md hover:bg-primary group/logistica "  +( activeLogistic? "bg-primary":"")}>
+                <Link to="/dashboard/logistic"  className="w-10 md:w-[100%] lg:w-[100%] flex flex-row gap-[3px]">
+                <div className="w-10 md:w-[10%] lg:w-[10%]"><img  src={logisticaIcon} className="w-10 h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
                 <div className="w-[90%] hidden md:flex lg:flex"><h4 className="group-hover/logistica:font-bold">Log&iacute;stica</h4></div>
                 </Link>
             </article>
-            <article className={"w-[100%]  md:w-[60%] lg:w-[60%]  h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]   flex flex-row justify-start items-center rounded-md hover:bg-primary group/administracion "  + (activeAdmon? "bg-primary":"")}>
-            <Link to="/dashboard/admin" className="w-[100%] flex flex-row gap-[3px]">
-                <div className="w-[30%] md:w-[10%] lg:w-[10%]"><img  src={admiIcon} className="w-[40%] h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
+            <article className={"w-10  md:w-[60%] lg:w-[60%]  h-[8dvh] md:h-[7dvh] lg:h-[5dvh] gap-[3px]   flex flex-row justify-start items-center rounded-md hover:bg-primary group/administracion "  + (activeAdmon? "bg-primary":"")}>
+            <Link to="/dashboard/admin" className="w-10 md:w-[100%] lg:w-[100%] flex flex-row gap-[3px]">
+                <div className="w-10 md:w-[10%] lg:w-[10%]"><img  src={admiIcon} className="w-10 h-10 md:h-5  md:w-5 lg:h-5  lg:w-5 "/></div>
                 <div className="w-[90%] hidden md:flex lg:flex"><h4  className="group-hover/administracion:font-bold">Administraci&oacute;n</h4></div>
             </Link>
             </article>            
