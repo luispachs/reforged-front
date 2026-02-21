@@ -7,7 +7,7 @@ export function OperatorLayout({props,children}:{props?:any,children?:React.Reac
                 <aside className="w-[40%] md:w-[30%] lg:w-[20%] pt-10 pl-2 pr-2 pb-5 h-screen order-1">
                     <OperatorNavBar/>
                 </aside>
-                <main className="w-[40%] md:w-[30%] lg:w-[20%] order-2">
+                <main className="w-[40%] md:w-[30%] lg:w-[20%] order-2 flex flex-col">
                     {children}
                 </main>
             </section>

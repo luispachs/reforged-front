@@ -18,7 +18,6 @@ export function AdminNavBar(){
 
     useEffect(()=>{
         let curUri = location.pathname.toString()
-        console.log(curUri);
         if(curUri.match(/\/dashboard\/admin.*/)){
             setActiveAdmon(true)
         }

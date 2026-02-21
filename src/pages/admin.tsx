@@ -1,15 +1,14 @@
-import { AuthMiddleware } from "@/ui/custom/AuthMiddleware";
-import { useUserStore } from "@/state/UserState";
-import { MainNavBar } from "@/ui/MainNavBar";
-import { OperatorLayout } from "@/ui/layouts/OperatorLayout";
 import { AdminLayout } from "@/ui/layouts/AdminLayout";
+import { AdministrationNav } from "@/ui/layouts/Navbars/InnerNavBar/AdministrationNav";
+import { Outlet } from "react-router";
 export function Admin(){
-    const userStore = useUserStore();
-    const token = userStore.getToken();
 
     return (
         <AdminLayout>
-            <h1>Admin</h1>
+            <AdministrationNav/>
+            <section>
+                <Outlet/>
+            </section>
         </AdminLayout>    
     );
 }
