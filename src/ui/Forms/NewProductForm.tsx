@@ -1,13 +1,12 @@
 
 
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@sha/components/ui/dialog";
+import { DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@sha/components/ui/dialog";
 import { FieldGroup,Field } from "@sha/components/ui/field";
 import { Textarea } from "@sha/components/ui/textarea";
 import { Input } from "@sha/components/ui/input";
 import { Button } from "@sha/components/ui/button";
 import addIcon from "@/assets/add.png";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@sha/components/ui/hover-card";
-import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from "@sha/components/ui/combobox";
 export function NewProductForm(){
     let units = [
         "KG",
@@ -20,7 +19,7 @@ export function NewProductForm(){
 
     return (
 
-                                <form>
+                        <form>
                             <DialogTrigger asChild>
                                 <Button ><img src={addIcon} className="h-5 w-5"/></Button>
                             </DialogTrigger>
@@ -71,13 +70,13 @@ export function NewProductForm(){
                                         <Field className="w-[50%] h-2/5 flex flex-col justify-center items-center" >  
                                                 <HoverCard>
                                                 <HoverCardTrigger>
-                                                    <label>Precio:</label>
+                                                    <label>Precio venta:</label>
                                                 </HoverCardTrigger>
                                                 <HoverCardContent>
                                                     <p>Precio de venta del producto.En caso de no ser un producto ofrecido al publico este valor debe ser Cero (0)</p>
                                                 </HoverCardContent>
                                             </HoverCard>
-                                            <Input type="number" placeholder="Costo del producto" name="cost" id="cost" value="0" required min={0}/>
+                                            <Input type="number" placeholder="Precio de venta" name="salePrice" id="salePrice" value="0" required min={0}/>
                                         </Field>
                                     </FieldGroup>
                                 </section>
@@ -104,7 +103,7 @@ export function NewProductForm(){
                                                     <p>Altura del producto (Eje X), medida necesaria para calculo de desidades y consumos </p>
                                                 </HoverCardContent>
                                             </HoverCard>
-                                            <Input type="number" placeholder="Ancho del producto 'x'" name="width" id="width" min={0} required/>
+                                            <Input type="number" placeholder="Ancho del producto 'X'" name="width" id="width" min={0} required/>
                                         </Field>
                                         <Field className="w-[30%] h-2/5 flex flex-col justify-center items-center">
                                             <HoverCard>
@@ -129,7 +128,7 @@ export function NewProductForm(){
                                                     <p>Cantidad minima del producto con los que se debe contar en bodegas </p>
                                                 </HoverCardContent>
                                             </HoverCard>
-                                            <Input type="number" placeholder="Punto Minimo" min={0} name="minimal-stock" id="minimal-stock" required/>
+                                            <Input type="number" placeholder="Punto Minimo" min={0} name="minimalStock" id="minimalStock" required/>
                                         </Field>
                                         <Field className="w-[50%] h-2/5 flex flex-col justify-center items-center">
                                                 <HoverCard>
@@ -140,7 +139,7 @@ export function NewProductForm(){
                                                     <p>Cantidad maxima del producto con los que se debe contar en bodegas </p>
                                                 </HoverCardContent>
                                             </HoverCard>
-                                            <Input type="number" placeholder="Punto Maximo" min={0} name="maxima-stock" id="maxima-stock" required/>
+                                            <Input type="number" placeholder="Punto Maximo" min={0} name="maximaStock" id="maximaStock" required/>
                                         </Field>
                                     </FieldGroup>
                                     <FieldGroup className="w-[100%] flex flex-col justify-start items-center gap-3">
@@ -164,7 +163,7 @@ export function NewProductForm(){
                                                     <p>Imagen de referencia del nuevo producto</p>
                                                 </HoverCardContent>
                                             </HoverCard>
-                                            <Input type="file" placeholder="Imagen de referencia" name="product-image" id="product-image" />
+                                            <Input type="file" placeholder="Imagen de referencia" name="productImage" id="product-image" />
                                         </Field>
                                     </FieldGroup>
                                     <FieldGroup className="w-[100%] flex flex-row justify-start items-center gap-3">
@@ -177,21 +176,14 @@ export function NewProductForm(){
                                                     <p>Unidad de medidad usada para este producto</p>
                                                 </HoverCardContent>
                                             </HoverCard>
-                                            <Combobox items={units}>
-                                                <ComboboxInput placeholder="Selecciona una unidad"/>
-                                                <ComboboxContent>
-                                                    <ComboboxEmpty>Elemento no valido</ComboboxEmpty>
-                                                    <ComboboxList>
-                                                        {
-                                                            (unit)=>
-                                                                <ComboboxItem key={unit} value={unit}>
-                                                                    {unit}
-                                                                </ComboboxItem>
-                                                            
-                                                        }
-                                                    </ComboboxList>
-                                                </ComboboxContent>
-                                            </Combobox>
+                                                    <Field>
+                                                        <select name="unit" id="unit" required className="border border-input bg-background rounded-md text-sm h-9 px-3 py-2">
+                                                            <option value="" disabled selected>Selecciona una unidad de medida</option>
+                                                            {units.map((unit) => (
+                                                                <option key={unit} value={unit}>{unit}</option>
+                                                            ))}
+                                                        </select>
+                                                    </Field>
                                         </Field>
                                         <Field className="w-[50%] h-2/5 flex flex-col justify-center items-center">
                                                 <HoverCard>
